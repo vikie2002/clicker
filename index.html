@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Cookie Clicker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+<script src="cookieClicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-route.js"></script>
+</head>
+<body ng-app="incremental">
+<div >
+<div ng-controller="IncCtrl">
+<h1> Cookies: <span id="cookies count">{{numcookies | number; 0}}</span></h1>
+		<button id="Cookies" ng-click="Cookies()">Cookies</button>
+
+	<h2> Store </h2>
+
+</body>
+</html>
