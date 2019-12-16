@@ -2,7 +2,7 @@ var app = angular.module('incremental', [
   'ngRoute'
 ]);
 
-app.controller('IncCtrl',[function IncCtrl($scope, $interval){
+app.controller('IncCtrl', ['$scope', '$interval', function IncCtrl($scope, $interval){
 		$scope.numCookies = 100;
 	   $scope.numPerson = 0;
 	   $scope.numCursor = 0;
@@ -15,9 +15,11 @@ app.controller('IncCtrl',[function IncCtrl($scope, $interval){
 	   
 	   $scope.Cookies = function() {
 		   $scope.numCookies++;
+		   console.log($scope.numCookies);
 	   }
-	   	   $scope.hirePerson = function() {
-		   $scope.numPerson++;
+	   
+	   $scope.hirePerson = function() {
+		$scope.numPerson++;
 	   $scope.numCookies -= $scope.PersonCost;
 	   $scope.PersonCost = math.ceil($scope.PersonCost * 1.1);
 	   }
@@ -43,10 +45,9 @@ app.controller('IncCtrl',[function IncCtrl($scope, $interval){
 
 	   
 	   $interval(function() {
-		   console.log("here");
-		   $scope.Cookies +=($scope.numPerson * 1 / 100);
-		   $scope.Cookies +=($scope.numCursor * 3 / 100);
-		   $scope.Cookies +=($scope.numFactory * 5 / 100);
-		   $scope.Cookies +=($scope.numMachine * 1 / 100);
+		   $scope.numCookies +=($scope.numPerson * 1 / 100);
+		   $scope.numCookies +=($scope.numCursor * 3 / 100);
+		   $scope.numCookies +=($scope.numFactory * 5 / 100);
+		   $scope.numCookies +=($scope.numMachine * 1 / 100);
 	   }, 10);
 }]);
